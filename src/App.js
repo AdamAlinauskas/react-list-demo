@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
+const cars = [
+  "Tesla Model 3", // mapCarFromString('Telsa Model 3') ===>>>> <li>Tesla Model 3 </li>
+  "Honda Civic", //<li>Honda Civic</li>
+  "BMW M3", // <li>BMW M3</li>
+  "Kia Sportage",
+  "Toyota Supra",
+  "Toyota Supra",
+  "Honda S2000"
+];
+
+function mapCarFromString(carString, index) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div key={index}>
+      {index + 1} {carString}
     </div>
   );
+}
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {cars.map((carString, index) => (
+          <div key={index}>{carString}</div>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
